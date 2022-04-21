@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 class SubjectAdaptore :RecyclerView.Adapter<SubjectAdaptore.SubjectHolder>() {
     val subjects = listOf<String>("Numbers", "Counts", "Shapes")
     val descriptions = listOf<String>("Let's learn the numbers", "How many is this?", "Do you know this shape?")
+    val images = listOf<Int>(R.drawable.number, R.drawable.counts, R.drawable.shapes)
     class SubjectHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
         val tv_numbers = itemView.findViewById<TextView>(R.id.tv_numbers)
         val tv_numbers2 = itemView.findViewById<TextView>(R.id.tv_numbers2)
+        val i_numbers = itemView.findViewById<ImageView>(R.id.i_numbers)
     }
 
     //buat masukin item ke recycler view activity main 2
@@ -28,6 +31,7 @@ class SubjectAdaptore :RecyclerView.Adapter<SubjectAdaptore.SubjectHolder>() {
         //memasukkan data ke dalam item
         holder.tv_numbers.text = subjects[position]
         holder.tv_numbers2.text = descriptions[position]
+        holder.i_numbers.setImageResource(images[position])
     }
 
     override fun getItemCount(): Int {
